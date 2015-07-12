@@ -65,6 +65,8 @@
 		FC87E5B71B3CE630005E1FD4 /* DLTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC87E5B01B3CE630005E1FD4 /* DLTipView.m */; };
 		FC87E5BA1B3CE77E005E1FD4 /* DLAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = FC87E5B91B3CE77E005E1FD4 /* DLAnimation.m */; };
 		FC87E5BE1B3CE883005E1FD4 /* DLFrameRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FC87E5BD1B3CE883005E1FD4 /* DLFrameRequest.m */; };
+		FC87E8441B52A4B5002DDE35 /* DLBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC87E8411B52A4B5002DDE35 /* DLBaseView.m */; };
+		FC87E8451B52A4B5002DDE35 /* DLBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC87E8431B52A4B5002DDE35 /* DLBaseViewController.m */; };
 		FCAAC08C1B52560900F85C08 /* INSCircleInfiniteIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAAC0821B52560900F85C08 /* INSCircleInfiniteIndicator.m */; };
 		FCAAC08D1B52560900F85C08 /* INSCirclePullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAAC0841B52560900F85C08 /* INSCirclePullToRefresh.m */; };
 		FCAAC08E1B52560900F85C08 /* INSInfiniteScrollBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAAC0871B52560900F85C08 /* INSInfiniteScrollBackgroundView.m */; };
@@ -228,6 +230,10 @@
 		FC87E5B91B3CE77E005E1FD4 /* DLAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLAnimation.m; sourceTree = "<group>"; };
 		FC87E5BC1B3CE883005E1FD4 /* DLFrameRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFrameRequest.h; sourceTree = "<group>"; };
 		FC87E5BD1B3CE883005E1FD4 /* DLFrameRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFrameRequest.m; sourceTree = "<group>"; };
+		FC87E8401B52A4B5002DDE35 /* DLBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLBaseView.h; sourceTree = "<group>"; };
+		FC87E8411B52A4B5002DDE35 /* DLBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLBaseView.m; sourceTree = "<group>"; };
+		FC87E8421B52A4B5002DDE35 /* DLBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLBaseViewController.h; sourceTree = "<group>"; };
+		FC87E8431B52A4B5002DDE35 /* DLBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLBaseViewController.m; sourceTree = "<group>"; };
 		FCAAC0811B52560900F85C08 /* INSCircleInfiniteIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSCircleInfiniteIndicator.h; sourceTree = "<group>"; };
 		FCAAC0821B52560900F85C08 /* INSCircleInfiniteIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSCircleInfiniteIndicator.m; sourceTree = "<group>"; };
 		FCAAC0831B52560900F85C08 /* INSCirclePullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSCirclePullToRefresh.h; sourceTree = "<group>"; };
@@ -479,7 +485,7 @@
 		FC06569B1B3BA87000D064D8 /* DL_UI */ = {
 			isa = PBXGroup;
 			children = (
-				FCAAC0BC1B52702300F85C08 /* DLTapView */,
+				FC4C3BFF1B52A47400757A3B /* DLBaseView */,
 				FCB0603F1B4F98E7008F1398 /* DLListView */,
 				FC87E5A21B3CE61B005E1FD4 /* UICategory */,
 				FC87E4C61B3BD2E7005E1FD4 /* Extension */,
@@ -515,6 +521,17 @@
 				FCB8EB671B46C3F100597E26 /* DLTargetChildren */,
 			);
 			path = DLSignal;
+			sourceTree = "<group>";
+		};
+		FC4C3BFF1B52A47400757A3B /* DLBaseView */ = {
+			isa = PBXGroup;
+			children = (
+				FC87E8401B52A4B5002DDE35 /* DLBaseView.h */,
+				FC87E8411B52A4B5002DDE35 /* DLBaseView.m */,
+				FC87E8421B52A4B5002DDE35 /* DLBaseViewController.h */,
+				FC87E8431B52A4B5002DDE35 /* DLBaseViewController.m */,
+			);
+			path = DLBaseView;
 			sourceTree = "<group>";
 		};
 		FC70D1511B4655BF0064C51D /* DLMacro */ = {
@@ -781,13 +798,6 @@
 			path = Masonry;
 			sourceTree = "<group>";
 		};
-		FCAAC0BC1B52702300F85C08 /* DLTapView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DLTapView;
-			sourceTree = "<group>";
-		};
 		FCB0603A1B4F85A6008F1398 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -936,6 +946,7 @@
 				FC87E4D51B3BD2E7005E1FD4 /* UIImage+DLExtension.m in Sources */,
 				FC87E5B31B3CE630005E1FD4 /* DLImageView.m in Sources */,
 				FCAAC08E1B52560900F85C08 /* INSInfiniteScrollBackgroundView.m in Sources */,
+				FC87E8441B52A4B5002DDE35 /* DLBaseView.m in Sources */,
 				FC87E4961B3BB40B005E1FD4 /* DLFrame_Singleton.m in Sources */,
 				FC87E5B11B3CE630005E1FD4 /* DLAlert.m in Sources */,
 				FC032DDB1B42B07000E10477 /* DLModel+networking.m in Sources */,
@@ -960,6 +971,7 @@
 				FC1D32A71B42B3B500375138 /* DLFrameHttpEngin.m in Sources */,
 				FC87E4D81B3BD2E7005E1FD4 /* UIWindow+DLExtension.m in Sources */,
 				FC87E5A11B3CE4CE005E1FD4 /* DLTouchID.m in Sources */,
+				FC87E8451B52A4B5002DDE35 /* DLBaseViewController.m in Sources */,
 				FCAAC0B61B52655C00F85C08 /* MASViewAttribute.m in Sources */,
 				FC032DCE1B42AC9900E10477 /* DLValueTransformer.m in Sources */,
 				FC032DC51B42AC9900E10477 /* DLModel.m in Sources */,
