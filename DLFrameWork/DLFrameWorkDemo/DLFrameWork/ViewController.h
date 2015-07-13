@@ -8,6 +8,37 @@
 
 #import <UIKit/UIKit.h>
 
+// @ Model
+
+@interface MainModel : DLModel
+
+@property (nonatomic, strong) NSString * name;
+
+@end
+
+// @ View
+
+@interface MainView : UIView
+
+@property (nonatomic, strong) UILabel * nameLabel;
+
+@end
+
+// @ VM
+
+typedef void(^responseBlock)(id obj);
+
+@interface MainViewModel : NSObject
+
+@property (nonatomic, strong) MainModel * model;
+@property (nonatomic, copy) responseBlock response;
+
+- (void)LoadData;
+
+@end
+
+// @ VC
+
 @interface ViewController : UIViewController
 
 

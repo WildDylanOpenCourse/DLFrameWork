@@ -8,7 +8,11 @@
 
 #ifndef DLFrameWork_DLFrameWork_pch
 #define DLFrameWork_DLFrameWork_pch
-
 #import "DLFrame.h"
 
+#ifdef __OBJC
+
+#import "OHHTTPStubs.h"
+
+#endif
 #endif

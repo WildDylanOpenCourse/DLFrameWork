@@ -39,7 +39,7 @@ static NSString* const INSPullToRefreshSpinAnimationKey = @"SpinAnimation";
 - (CAShapeLayer*)circle {
     if(!_circle) {
         _circle = [CAShapeLayer layer];
-        _circle.fillColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1].CGColor; /*#2c3e50*/
+        _circle.fillColor = [UIColor colorWithRed:0.519 green:1.000 blue:0.129 alpha:1.000].CGColor; /*#2c3e50*/
         _circle.contentsScale = self.layer.contentsScale;
         [self.layer addSublayer:_circle];
     }

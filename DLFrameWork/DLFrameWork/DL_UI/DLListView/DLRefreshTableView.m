@@ -1,6 +1,6 @@
 //
 //  DLRefreshTableView.m
-//  
+//
 //
 //  Created by XueYulun on 15/7/10.
 //
@@ -22,7 +22,6 @@
     self = [super initWithFrame:frame style:style];
     if (self) {
         
-        
     }
     
     return self;
@@ -32,45 +31,42 @@
     
     [super setFrame:frame];
     
-    if (NO == CGSizeEqualToSize(frame.size, CGSizeZero)) {
+    if (NO == _refreshInited) {
         
-        if (NO == _refreshInited) {
+        @weakify(self);
+        [self ins_addPullToRefreshWithHeight:60.0 handler:^( UIScrollView * scrollView ) {
             
-            @weakify(self);
-            [self ins_addPullToRefreshWithHeight:60.0 handler:^( UIScrollView * scrollView ) {
+            @strongify(self);
+            
+            if (self.refreshBlock) {
                 
-                @strongify(self);
+                self.refreshBlock();
+            }
+        }];
+        
+        [self ins_addInfinityScrollWithHeight:60 handler:^( UIScrollView * scrollView ) {
+            
+            @strongify(self);
+            
+            if (self.loadMoreBlock) {
                 
-                if (self.refreshBlock) {
-                    
-                    self.refreshBlock();
-                }
-            }];
-            
-            [self ins_addInfinityScrollWithHeight:60 handler:^( UIScrollView * scrollView ) {
-                
-                @strongify(self);
-                
-                if (self.loadMoreBlock) {
-                    
-                    self.loadMoreBlock();
-                }
-            }];
-            
-            UIView<INSAnimatable> * infinityIndicator = [[INSCircleInfiniteIndicator alloc] initWithFrame:CGRectMake(0, 0, 24.0f, 24.0f)];
-            UIView<INSPullToRefreshBackgroundViewDelegate> * pullToRefresh = [[INSCirclePullToRefresh alloc] initWithFrame:CGRectMake(0, 0, 24.0f, 24.0f)];
-            
-            self.ins_infiniteScrollBackgroundView.preserveContentInset = NO;
-            [self.ins_infiniteScrollBackgroundView addSubview:infinityIndicator];
-            
-            self.ins_pullToRefreshBackgroundView.delegate = pullToRefresh;
-            self.ins_pullToRefreshBackgroundView.preserveContentInset = NO;
-            [self.ins_pullToRefreshBackgroundView addSubview:pullToRefresh];
-            
-            [infinityIndicator startAnimating];
-            
-            _refreshInited = YES;
-        }
+                self.loadMoreBlock();
+            }
+        }];
+        
+        UIView<INSAnimatable> * infinityIndicator = [[INSCircleInfiniteIndicator alloc] initWithFrame:CGRectMake(0, 0, 24.0f, 24.0f)];
+        UIView<INSPullToRefreshBackgroundViewDelegate> * pullToRefresh = [[INSCirclePullToRefresh alloc] initWithFrame:CGRectMake(0, 0, 24.0f, 24.0f)];
+        
+        self.ins_infiniteScrollBackgroundView.preserveContentInset = NO;
+        [self.ins_infiniteScrollBackgroundView addSubview:infinityIndicator];
+        
+        self.ins_pullToRefreshBackgroundView.delegate = pullToRefresh;
+        self.ins_pullToRefreshBackgroundView.preserveContentInset = NO;
+        [self.ins_pullToRefreshBackgroundView addSubview:pullToRefresh];
+        
+        [infinityIndicator startAnimating];
+        
+        _refreshInited = YES;
     }
 }
 

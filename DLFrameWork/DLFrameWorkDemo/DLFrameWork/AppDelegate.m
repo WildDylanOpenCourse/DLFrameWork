@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
 
 @interface DLTestModel : DLModel
 
@@ -48,36 +49,36 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
+//    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+//    self.window.backgroundColor = [UIColor whiteColor];
+//    [self.window makeKeyAndVisible];
     
-    DLTestModel * testModel = [[DLTestModel alloc] init];
-    
-    
-    DLBind(self.window, backgroundColor) = DLGun(testModel, color);
-    
-    testModel.color = [UIColor orangeColor];
-    
-    
-    UILabel * testLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
-    testLabel.backgroundColor = [UIColor blackColor];
-    [self.window addSubview:testLabel];
-    
-    UITextField * text = [[UITextField alloc] initWithFrame:CGRectMake(100, 300, 100, 30)];
-    text.backgroundColor = [UIColor cyanColor];
-    [self.window addSubview:text];
-    
-    DLBind(testLabel, text) = DLGun(text, text);
-    
-    [testLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-       
-        make.left.equalTo(self.window.mas_left).with.offset(10);
-        make.top.equalTo(self.window.mas_top).with.offset(10);
-        make.size.mas_equalTo(CGSizeMake(100, 100));
-    }];
-    
-    [[DLFrameManager sharedInstance] HandleWindowTouch];
+//    DLTestModel * testModel = [[DLTestModel alloc] init];
+//    
+//    
+//    DLBind(self.window, backgroundColor) = DLGun(testModel, color);
+//    
+//    testModel.color = [UIColor orangeColor];
+//    
+//    
+//    UILabel * testLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+//    testLabel.backgroundColor = [UIColor blackColor];
+//    [self.window addSubview:testLabel];
+//    
+//    UITextField * text = [[UITextField alloc] initWithFrame:CGRectMake(100, 300, 100, 30)];
+//    text.backgroundColor = [UIColor cyanColor];
+//    [self.window addSubview:text];
+//    
+//    DLBind(testLabel, text) = DLGun(text, text);
+//    
+//    [testLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//       
+//        make.left.equalTo(self.window.mas_left).with.offset(10);
+//        make.top.equalTo(self.window.mas_top).with.offset(10);
+//        make.size.mas_equalTo(CGSizeMake(100, 100));
+//    }];
+//    
+//    [[DLFrameManager sharedInstance] HandleWindowTouch];
     
 //    DLTestModel * testModel_1 = [[DLTestModel alloc] init];
     
@@ -127,12 +128,12 @@
 //    
 //    // $ 普通网络请求
 //    
-    @weakify(self);
-    [[DLFrameHttpEngin sharedClient] GET:@"" parameters:@{} completion:^(id response, NSHTTPURLResponse *urlResponse, NSError *error) {
-    
-        @strongify(self);
-        self.window.backgroundColor = [UIColor greenColor];
-    }];
+//    @weakify(self);
+//    [[DLFrameHttpEngin sharedClient] GET:@"" parameters:@{} completion:^(id response, NSHTTPURLResponse *urlResponse, NSError *error) {
+//    
+//        @strongify(self);
+//        self.window.backgroundColor = [UIColor greenColor];
+//    }];
 //
 //    // $ 方便处理的网络请求
 //    
@@ -186,26 +187,28 @@
 //    // $ 配置
 //    
     // $ 获取位置并对位置进行解码
-    [[DLLocationManager sharedInstance] UpdateLocationWithAccuracy:kCLLocationAccuracyBestForNavigation Update:DLLocationReques_Always CompleteBlock:^(CLLocation *location, NSError *error) {
+//    [[DLLocationManager sharedInstance] UpdateLocationWithAccuracy:kCLLocationAccuracyBestForNavigation Update:DLLocationReques_Always CompleteBlock:^(CLLocation *location, NSError *error) {
+//    
+//        if (!error) {
+//            
+//            [[DLLocationManager sharedInstance] GeocodeWithLocation:location CompleteBlock:^(NSDictionary *addressInfoDict, NSError *error) {
+//                
+//                if (!error) {
+//                    
+//                    DLogOut(@"%@", addressInfoDict);
+//                    
+//                } else {
+//                    
+//                    [[DLError errorWithMessage:[error localizedDescription] Code:9900] showErrorAlert];
+//                }
+//            }];
+//        } else {
+//            
+//            [[DLError errorWithMessage:[error localizedDescription] Code:9911] showErrorAlert];
+//        }
+//    }];
     
-        if (!error) {
-            
-            [[DLLocationManager sharedInstance] GeocodeWithLocation:location CompleteBlock:^(NSDictionary *addressInfoDict, NSError *error) {
-                
-                if (!error) {
-                    
-                    DLogOut(@"%@", addressInfoDict);
-                    
-                } else {
-                    
-                    [[DLError errorWithMessage:[error localizedDescription] Code:9900] showErrorAlert];
-                }
-            }];
-        } else {
-            
-            [[DLError errorWithMessage:[error localizedDescription] Code:9911] showErrorAlert];
-        }
-    }];
+//    self.window.rootViewController = [[ViewController alloc] init];
     
     return YES;
 }
